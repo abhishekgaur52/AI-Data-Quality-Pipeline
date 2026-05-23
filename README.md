@@ -58,32 +58,40 @@ Score Range:
 - <70 → Bad
 
 
-# 📁 Project Structure
+#  Project Structure
 AI_Data_Quality_Pipeline/
 │
-├── app.py
-├── streamlit_app.py
+├── app.py                          # Flask API entrypoint (runs pipeline)
+├── streamlit_app.py               # Streamlit dashboard UI
+├── requirements.txt               # Dependencies
 │
-├── pipeline/
-│ ├── ingest.py
-│ ├── clean.py
-│ ├── rules.py
-│ ├── repair.py
-│ ├── anomaly.py
-│ ├── drift.py
-│ ├── quality.py
-│ └── logger.py
+├── pipeline/                      # Core data pipeline logic
+│   ├── __init__.py
+│   ├── ingest.py                  # Load data
+│   ├── clean.py                   # Strict cleaning (type fixing, garbage removal)
+│   ├── rules.py                   # Business rules enforcement
+│   ├── repair.py                  # ML-based imputation (RandomForest)
+│   ├── anomaly.py                # Anomaly detection (Isolation Forest / rules)
+│   ├── drift.py                  # Schema drift detection
+│   ├── quality.py                # Quality score calculation
+│   └── logger.py                 # Logging utility
 │
 ├── config/
-│ └── schema.json
+│   └── schema.json               # Stored schema baseline for drift detection
 │
 ├── data/
-│ ├── raw/
-│ ├── processed/
-│ └── version/
+│   ├── raw/
+│   │   ├── sample.csv            # Input datasets
+│   │
+│   ├── processed/
+│   │   └── cleaned.csv           # Final cleaned output
+│   │
+│   └── version/                  # Historical versions (optional)
 │
 ├── logs/
-└── requirements.txt
+│   └── pipeline.log              # System logs
+│
+└── README.md                     # Project documentation
 
 ---
 
