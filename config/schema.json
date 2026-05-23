@@ -1,0 +1,10 @@
+{
+    "id": "int64",
+    "age": "float64",
+    "salary": "float64",
+    "department": "object",
+    "experience": "float64",
+    "join_date": "datetime64[ns]",
+    "location": "object",
+    "performance_score": "float64"
+}
