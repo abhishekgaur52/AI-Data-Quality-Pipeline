@@ -61,38 +61,32 @@ Score Range:
 #  Project Structure
 AI_Data_Quality_Pipeline/
 │
-├── app.py                          # Flask API entrypoint (runs pipeline)
-├── streamlit_app.py               # Streamlit dashboard UI
-├── requirements.txt               # Dependencies
+├── app.py                        # Flask API entry point
+├── streamlit_app.py             # Streamlit dashboard
+├── requirements.txt             # Dependencies
 │
-├── pipeline/                      # Core data pipeline logic
-│   ├── __init__.py
-│   ├── ingest.py                  # Load data
-│   ├── clean.py                   # Strict cleaning (type fixing, garbage removal)
-│   ├── rules.py                   # Business rules enforcement
-│   ├── repair.py                  # ML-based imputation (RandomForest)
-│   ├── anomaly.py                # Anomaly detection (Isolation Forest / rules)
-│   ├── drift.py                  # Schema drift detection
-│   ├── quality.py                # Quality score calculation
-│   └── logger.py                 # Logging utility
+├── pipeline/
+│   ├── ingest.py                # Load raw data
+│   ├── clean.py                 # Data cleaning
+│   ├── rules.py                 # Business rules validation
+│   ├── repair.py                # ML-based imputation
+│   ├── anomaly.py              # Anomaly detection
+│   ├── drift.py                # Schema drift detection
+│   ├── quality.py              # Quality score calculation
+│   └── logger.py              # Logging utility
 │
 ├── config/
-│   └── schema.json               # Stored schema baseline for drift detection
+│   └── schema.json            # Baseline schema tracking
 │
 ├── data/
-│   ├── raw/
-│   │   ├── sample.csv            # Input datasets
-│   │
-│   ├── processed/
-│   │   └── cleaned.csv           # Final cleaned output
-│   │
-│   └── version/                  # Historical versions (optional)
+│   ├── raw/                   # Input datasets
+│   ├── processed/             # Cleaned output
+│   └── version/               # Historical versions
 │
 ├── logs/
-│   └── pipeline.log              # System logs
+│   └── pipeline.log          # Pipeline logs
 │
-└── README.md                     # Project documentation
-
+└── README.md                  # Project documentation
 ---
 
 ## API Response
